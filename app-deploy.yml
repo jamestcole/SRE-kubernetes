@@ -16,11 +16,11 @@ spec:
     spec:
       containers:
         - name: app
-          image: jamestcole/nodejs-app:latest
+          image: jamestcole/nodejs-app
 
           env:
             - name: DB_HOST 
-              value: mongodb://mongo:27017/posts
+              value: mongodb://mongo:27017/dev
 
           ports:
             - containerPort: 3000
