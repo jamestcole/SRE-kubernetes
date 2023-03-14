@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: sparta-app
+spec:
+  selector:
+    matchLabels:
+      app: sparta-app
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: sparta-app
+    spec:
+      containers:
+        - name: app
+          image: jamestcole/nodejs-app:latest
+
+          env:
+            - name: DB_HOST 
+              value: mongodb://mongo:27017/posts
+
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: Always
